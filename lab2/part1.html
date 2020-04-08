@@ -18,18 +18,38 @@
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			document.body.appendChild(renderer.domElement);
 
-			//add cube mesh with material and geometry
-			var geometry = new THREE.BoxGeometry(); 
-			var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-			var cube = new THREE.Mesh(geometry, material);
-			scene.add(cube); //add cube to scene
+			//create three cubes with different material and geometry
+			var geometry1 = new THREE.BoxGeometry();
+			var geometry2 = new THREE.BoxGeometry(); 
+			var geometry3 = new THREE.BoxGeometry();  
+			var material1 = new THREE.MeshBasicMaterial({color: 0x6cc7d9});
+			var material2 = new THREE.MeshBasicMaterial({color: 0x6cd99d});
+			var material3 = new THREE.MeshBasicMaterial({color: 0xa86ddb});
+			var cube1 = new THREE.Mesh(geometry1, material1);
+			var cube2 = new THREE.Mesh(geometry2, material2);
+			var cube3 = new THREE.Mesh(geometry3, material3);
+			//add cubes to scene
+			scene.add(cube1); 
+			scene.add(cube2); 
+			scene.add(cube3); 
 			camera.position.z = 5; //move camera out towards viewer to avoid overlap
 
 			//create animate method to call renderer
 			function animate() {
 				requestAnimationFrame(animate);
 				renderer.render(scene, camera);
+			//animate cube1
+				geometry1.rotateX(0.01);
+				geometry1.rotateY(0.01);
+			//animate cube2
+				geometry2.translate(0.2, 0, 0);
+				geometry2.rotateZ(0.1); 
+		    //animate cube3
+				geometry3.translate(0, 0, -0.02);  
+			    geometry3.scale(1.002, 1.002, 0.001);
+			    geometry3.rotateX(0.1);
 			}
 			animate(); 
+
 		</script>
 	</body>
