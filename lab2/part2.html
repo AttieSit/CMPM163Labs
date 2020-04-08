@@ -18,17 +18,64 @@
  			var renderer = new THREE.WebGLRenderer();
  			renderer.setSize(window.innerWidth, window.innerWidth);
  			document.body.appendChild(renderer.domElement);
- 			camera.position.z = 10;  
+ 			camera.position.z = 18;  
 
- 			//add light to scene
- 			var light = new THREE.PointLight(0xffffff, 1, 1000)
- 			light.position.set(50, 50, 50);
- 			scene.add(light);
+ 			//add lights to scene
+ 			//set up blue lighting
+ 			var lightBlue = new THREE.PointLight(0x4266f5, 3, 1000)
+ 			lightBlue.position.set(20, 0, 30);
+ 			scene.add(lightBlue);
+ 			
+ 			//set up yellow lighting
+ 			var lightYellow = new THREE.PointLight(0xf5f242, 1, 1000)
+ 			lightYellow.position.set(0, 10, 0);
+ 			scene.add(lightYellow);
 
- 			//add loader and load 3D models into scene
+ 			//set up red lighting
+ 			var lightYellow = new THREE.PointLight(0xf54242, 1, 1000)
+ 			lightYellow.position.set(0, 50, 50);
+ 			scene.add(lightYellow);
+
+ 			//add loader 
  			var loader = new THREE.GLTFLoader();
+ 			
+ 			//load and adjust models to scene
+ 			//fireplace model 
  			loader.load('cheminee.glb', function(gltf) {
  				scene.add(gltf.scene);
+ 				//adjust model properties
+ 				gltf.scene.position.x = 3; 
+ 				gltf.scene.position.z = -2; 
+ 				gltf.scene.position.y = 2; 
+ 				gltf.scene.rotation.y = -0.2;
+ 			}, function (xhr) {
+ 				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+ 	        }, function (error) {
+ 	        	console.error(error);
+ 			});
+
+ 			//couch model
+ 			loader.load('couchPoofyPillows.glb', function(gltf) {
+ 				scene.add(gltf.scene);
+ 				//adjust model properties
+ 				gltf.scene.position.x = -11.01; 
+ 				gltf.scene.position.z = 5; 
+ 				gltf.scene.position.y = -2; 
+ 				gltf.scene.rotation.y = -0.1;
+ 			}, function (xhr) {
+ 				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+ 	        }, function (error) {
+ 	        	console.error(error);
+ 			});
+
+ 			//bookshelf model 
+ 			loader.load('smallbookshelves.glb', function(gltf) {
+ 				scene.add(gltf.scene);
+ 				//adjust model properties
+ 				gltf.scene.position.x = -4; 
+ 				gltf.scene.position.z = 3; 
+ 				gltf.scene.position.y = -0.5; 
+ 				gltf.scene.rotation.y = 0.8;
  			}, function (xhr) {
  				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
  	        }, function (error) {
