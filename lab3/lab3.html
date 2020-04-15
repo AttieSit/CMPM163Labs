@@ -33,6 +33,67 @@
 			cube1.position.set(-2, 2, 0);
 			cube2.position.set(2, 2, 0);
 
+			//initialize variables for vertex and fragment shader
+			THREE.Cache.enabled = true; 
+			var count = 0;
+			var loader = new THREE.FileLoader();
+			var fshader, vshader; 
+
+			//load the vertex shader
+			loader.load('shaders/vertexShader.vert',
+				//onLoad callback
+				function(data) {
+					console.log(data); //output the text to the console
+					vshader = data;
+					count += 1;
+                    addCoolCube();
+				},
+				//onProgress callback
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total * 100) + '% loaded');
+				},
+				//onError callback
+				function(err) {
+					console.error('An error happened');
+				}
+			);
+
+			//load the fragment shader
+			loader.load('shaders/fragmentShader.frag',
+				//onLoad callback
+				function(data) {
+					console.log(data); //output the text to the console
+					fshader = data;
+					count += 1;
+					addCoolCube();
+				},
+				//onProgress callback
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total * 100) + '% loaded');
+				},
+				//onError callback
+				function(err){
+					console.error('An error happened');
+				}
+				);
+			
+			//setup cube3
+			var geometry3, material3, cube3;
+			function addCoolCube() {
+				if(count == 2) {
+					let uniforms = {
+						colorB: {type: 'vec3', value: new THREE.Color(0x00fff2)},
+						colorA: {type: 'vec3', value: new THREE.Color(0x8000ff)}
+					};
+					geometry3 = new THREE.BoxGeometry(1, 1, 1);
+					material3 =  new THREE.ShaderMaterial({ uniforms: uniforms, fragmentShader: fshader, vertexShader: vshader, precision: "mediump"});
+					cube3 = new THREE.Mesh(geometry3, material3);
+					cube3.position.x = 2;
+					scene.add(cube3);
+					cube3.position.set(-2, -2, 0); //adjust position
+				}		
+			}
+
 			//add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
 			light.position.set(10, 10, 10);
@@ -47,7 +108,12 @@
 				//cube2
 				geometry2.rotateX(0.01);
 				geometry2.rotateY(0.01);
-				renderer.render(scene, camera);
+				//cube3
+				if(geometry3){
+					geometry3.rotateX(0.01);
+					geometry3.rotateY(0.01);
+				}
+			    renderer.render(scene, camera);
 			}
 			animate(); 
 
