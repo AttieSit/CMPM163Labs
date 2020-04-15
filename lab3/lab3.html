@@ -19,22 +19,34 @@
 			document.body.appendChild(renderer.domElement);
 			camera.position.z = 5;
 
-			// setup the cube
-			var geometry = new THREE.BoxGeometry();
-			var material = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x00ff00, shininess: 30 } );
-			var cube = new THREE.Mesh(geometry, material);
-			scene.add(cube);
+			//create two cubes with different materials and geometry
+			var geometry1 = new THREE.BoxGeometry();
+			var geometry2 = new THREE.BoxGeometry();
+			var material1 = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x00ff00, shininess: 30 } );
+	        var material2 = new THREE.PointsMaterial( { color: 0xb0a472 } );
+			var cube1 = new THREE.Mesh(geometry1, material1);
+			var cube2 = new THREE.Points(geometry2, material2);
+			//add cubes to scene
+			scene.add(cube1);
+			scene.add(cube2);
+			//move cubes apart
+			cube1.position.set(-2, 2, 0);
+			cube2.position.set(2, 2, 0);
 
 			//add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
 			light.position.set(10, 10, 10);
 			scene.add(light);
 
-			//create animate method to call renderer
+			//create animate method to animate cubes
 			function animate() {
 				requestAnimationFrame(animate);
-				geometry.rotateX(0.01);
-				geometry.rotateY(0.01);
+				//cube1
+				geometry1.rotateX(0.01);
+				geometry1.rotateY(0.01);
+				//cube2
+				geometry2.rotateX(0.01);
+				geometry2.rotateY(0.01);
 				renderer.render(scene, camera);
 			}
 			animate(); 
