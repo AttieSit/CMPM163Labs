@@ -26,20 +26,22 @@
 	        var material2 = new THREE.PointsMaterial( { color: 0xb0a472 } );
 			var cube1 = new THREE.Mesh(geometry1, material1);
 			var cube2 = new THREE.Points(geometry2, material2);
-			//add cubes to scene
+			//add cube1 and cube2 to scene
 			scene.add(cube1);
 			scene.add(cube2);
 			//move cubes apart
 			cube1.position.set(-2, 2, 0);
 			cube2.position.set(2, 2, 0);
 
-			//initialize variables for vertex and fragment shader
+			//initialize variables for vertex and fragment shaders
 			THREE.Cache.enabled = true; 
 			var count = 0;
+			var count2 = 0;
 			var loader = new THREE.FileLoader();
 			var fshader, vshader; 
+			var fshader2, vshader2; 
 
-			//load the vertex shader
+			//load the vertex shader for cube 3
 			loader.load('shaders/vertexShader.vert',
 				//onLoad callback
 				function(data) {
@@ -48,7 +50,7 @@
 					count += 1;
                     addCoolCube();
 				},
-				//onProgress callback
+				//onProgress callback 
 				function(xhr) {
 					console.log((xhr.loaded/xhr.total * 100) + '% loaded');
 				},
@@ -58,7 +60,7 @@
 				}
 			);
 
-			//load the fragment shader
+			//load the fragment shader for cube 3
 			loader.load('shaders/fragmentShader.frag',
 				//onLoad callback
 				function(data) {
@@ -75,7 +77,7 @@
 				function(err){
 					console.error('An error happened');
 				}
-				);
+			);
 			
 			//setup cube3
 			var geometry3, material3, cube3;
@@ -91,6 +93,64 @@
 					cube3.position.x = 2;
 					scene.add(cube3);
 					cube3.position.set(-2, -2, 0); //adjust position
+				}	
+			}	
+
+
+			//load the vertex shader for cube 4
+			loader.load('shaders/vertexShader2.vert',
+				//onLoad callback
+				function(data) {
+					console.log(data); //output the text to the console
+					vshader2 = data;
+					count2 += 1;
+                    addAnotherCoolCube();
+				},
+				//onProgress callback
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total * 100) + '% loaded');
+				},
+				//onError callback
+				function(err) {
+					console.error('An error happened');
+				}
+			);
+
+			//load the fragment shader for cube 4
+			loader.load('shaders/fragmentShader2.frag',
+				//onLoad callback
+				function(data) {
+					console.log(data); //output the text to the console
+					fshader2 = data;
+					count2 += 1;
+					addAnotherCoolCube();
+				},
+				//onProgress callback
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total * 100) + '% loaded');
+				},
+				//onError callback
+				function(err){
+					console.error('An error happened');
+				}
+			);
+
+			//setup cube4
+			var geometry4, material4, cube4;
+			function addAnotherCoolCube() {
+				if(count2 == 2) {
+					let uniforms2 = {
+						colorD: {type: 'vec3', value: new THREE.Color(0X6A00FF)},
+						colorC: {type: 'vec3', value: new THREE.Color(0x0050EF)},
+						colorB: {type: 'vec3', value: new THREE.Color(0x008a00)},
+						colorA: {type: 'vec3', value: new THREE.Color(0x000000)},
+					};
+					geometry4 = new THREE.BoxGeometry(1, 1, 1);
+					material4 =  new THREE.ShaderMaterial({ uniforms: uniforms2, fragmentShader: fshader2, vertexShader: vshader2, precision: "mediump"});
+					cube4 = new THREE.Mesh(geometry4, material4);
+					cube4.position.x = 2;
+					scene.add(cube4);
+					cube4.position.set(2, -2, 0); //adjust position
 				}		
 			}
 
@@ -113,10 +173,15 @@
 					geometry3.rotateX(0.01);
 					geometry3.rotateY(0.01);
 				}
+				//cube4
+				if(geometry4){
+					geometry4.rotateX(0.01);
+					geometry4.rotateY(0.01);
+				}	
 			    renderer.render(scene, camera);
 			}
 			animate(); 
-
+		
 		</script>
 	</body>
 </html>
