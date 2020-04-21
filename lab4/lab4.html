@@ -19,7 +19,7 @@
       		document.body.appendChild(renderer.domElement);
 			camera.position.z = 5;
 			
-			// setup the cube
+			// setup cubes
 			// cube 1: steel floor texture
 			var geometry = new THREE.BoxGeometry();
 			var texture = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor texture
@@ -32,9 +32,28 @@
 			light.position.set(10, 10, 10);
 			scene.add(light);
 
-			//create animate method to animate cubes
+			//create animate method to animate cubes and lights
+			var lightDir = -0.3; //set light moving left initially (neg = left/pos = right)
+			var lightPosition = 10;
 			function animate() {
 				requestAnimationFrame(animate);
+				//animate light to oscillate on the x-axis
+				light.position.x = lightPosition;
+				if (light.position.x <= -10) { //left bound
+					lightDir = 0.3; //change to move right 
+				}else if (light.position.x >= 10) { //right bound
+					lightDir = -0.3; //change to move left
+				}else{
+					//no change
+				}
+				lightPosition = lightPosition + lightDir;
+				light.position.x = lightPosition; //move 
+				console.log("light position = "+lightPosition + lightDir);
+
+				//animate cube 1: steel floor
+				//geometry.rotateX(0.01);
+				//geometry.rotateY(0.01);
+
 				renderer.render(scene, camera);
 			}
 			animate();
