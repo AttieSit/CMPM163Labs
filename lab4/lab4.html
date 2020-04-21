@@ -19,7 +19,7 @@
       		document.body.appendChild(renderer.domElement);
 			camera.position.z = 5;
 			
-			// setup cubes
+			// setup cubes 1-3
 			// cube 1: steel floor texture with normals
 			var geometry = new THREE.BoxGeometry();
 			var texture1 = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor diff texture
@@ -40,12 +40,73 @@
      		scene.add(cube3); 
      		cube3.position.x += 2; 
 
+     		// setup cube 4 
+			// shader variables
+			THREE.Cache.enabled = true;
+			var count = 0;
+			var loader = new THREE.FileLoader();
+			var fshader, vshader;
+			// load vertex shader
+			loader.load('shaders/vertexShader.vert',
+      			// onLoad callback
+      			function (data) {
+      				console.log(data); // output the text to the console
+      				vshader = data;
+      				count += 1;
+      				addNormalMapShaderCube(); 
+      			},
+      			// onProgress callback
+      			function (xhr) {
+      				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+      			},
+     			// onError callback
+      			function (err) {
+      				console.error('An error happened');
+      			});
+			// load fragment shaders
+			loader.load('shaders/fragmentShader.frag',
+      			// onLoad callback
+      			function (data) {
+      				console.log(data); // output the text to the console
+      				fshader = data;
+      				count += 1;
+      				addNormalMapShaderCube(); 
+      			},
+      			// onProgress callback
+      			function (xhr) {
+      				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+      			},
+				// onError callback
+      			function (err) {
+      				console.error('An error happened');
+      			});
+			// cube 4: custom shader material
+			var geometry2, material4, cube4;
+			function addNormalMapShaderCube() {
+				if (count == 2) {
+					let uniforms = {
+						colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
+						colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
+					};
+					geometry2 = new THREE.BoxGeometry(1, 1, 1);
+					material4 = new THREE.ShaderMaterial({
+						uniforms: uniforms,
+						fragmentShader: fshader,
+						vertexShader: vshader,
+						precision: "mediump"});
+					cube4 = new THREE.Mesh(geometry2, material4);
+					cube4.position.x = 4; 
+					scene.add(cube4);
+				}
+			}
+
+
 			// add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
 			light.position.set(10, 10, 10);
 			scene.add(light);
 
-			//create animate method to animate cubes and lights
+			// create animate method to animate cubes and lights
 			var lightDir = -0.3; //set light moving left initially (neg = left/pos = right)
 			var lightPosition = 10;
 			function animate() {
@@ -61,7 +122,7 @@
 				}
 				lightPosition = lightPosition + lightDir;
 				light.position.x = lightPosition; //move 
-				console.log("light position = "+lightPosition + lightDir);
+				//console.log("light position = "+lightPosition + lightDir);
 
 				//animate cube 1: steel floor
 				//geometry.rotateX(0.01);
