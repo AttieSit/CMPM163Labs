@@ -20,12 +20,25 @@
 			camera.position.z = 5;
 			
 			// setup cubes
-			// cube 1: steel floor texture
+			// cube 1: steel floor texture with normals
 			var geometry = new THREE.BoxGeometry();
-			var texture = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor texture
-      		var material = new THREE.MeshPhongMaterial( { map: texture } );
-      		var cube = new THREE.Mesh(geometry, material);
+			var texture1 = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor diff texture
+			var normMap1 = THREE.ImageUtils.loadTexture("textures/199_norm.jpg"); //load steel floor normal texture
+			var material1 = new THREE.MeshPhongMaterial( { map: texture1, normalMap: normMap1 } ); 
+      		var cube = new THREE.Mesh(geometry, material1);
      		scene.add(cube);
+     		// cube 2: steel floor texture 
+     		var material2 = new THREE.MeshPhongMaterial( { map: texture1 } ); 
+     		var cube2 = new THREE.Mesh(geometry, material2);
+     		scene.add(cube2);
+     		cube2.position.x -= 2;
+     		//cube 3: engraved wood texture 
+     		var texture2 = THREE.ImageUtils.loadTexture("textures/176.jpg"); //load engraved wood diff texture
+     		var normMap2 = THREE.ImageUtils.loadTexture("textures/176_norm.jpg"); //load engraved wood normal texture
+     		var material3 = new THREE.MeshPhongMaterial( {map: texture2, normalMap: normMap2} ); 
+     		var cube3 = new THREE.Mesh(geometry, material3);
+     		scene.add(cube3); 
+     		cube3.position.x += 2; 
 
 			// add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
