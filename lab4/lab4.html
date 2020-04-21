@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 4: Textures & Normal Maps</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script>
+			// setup the scene
+      		var scene = new THREE.Scene();
+      		var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+      		var renderer = new THREE.WebGLRenderer();
+      		renderer.setSize(window.innerWidth, window.innerHeight);
+      		document.body.appendChild(renderer.domElement);
+			camera.position.z = 5;
+			
+			// setup the cube
+			// cube 1: steel floor texture
+			var geometry = new THREE.BoxGeometry();
+			var texture = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor texture
+      		var material = new THREE.MeshPhongMaterial( { map: texture } );
+      		var cube = new THREE.Mesh(geometry, material);
+     		scene.add(cube);
+
+			// add the light
+			var light = new THREE.PointLight(0xffffff, 1, 1000);
+			light.position.set(10, 10, 10);
+			scene.add(light);
+
+			//create animate method to animate cubes
+			function animate() {
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+			}
+			animate();
+
+
+		</script>
+	</body>
+</html>
