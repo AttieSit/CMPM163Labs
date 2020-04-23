@@ -85,6 +85,7 @@
 			function addNormalMapShaderCube() {
 				if (count == 2) {
 					let uniforms = {
+						texture3: {type: 'sampler2D', value: new THREE.TextureLoader().load("textures/188.jpg")}, //load pebble diff texture
 						colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
 						colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
 					};
@@ -100,22 +101,82 @@
 				}
 			}
 
+     		// setup cube 5 
+			// shader variables
+			var count2 = 0;
+			var loader = new THREE.FileLoader();
+			var fshader2, vshader2;
+			// load vertex shader
+			loader.load('shaders/vertexShader2.vert',
+      			// onLoad callback
+      			function (data) {
+      				console.log(data); // output the text to the console
+      				vshader2 = data;
+      				count2 += 1;
+      				addTiledTextureCube()
+      			},
+      			// onProgress callback
+      			function (xhr) {
+      				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+      			},
+     			// onError callback
+      			function (err) {
+      				console.error('An error happened');
+      			});
+			// load fragment shaders
+			loader.load('shaders/fragmentShader2.frag',
+      			// onLoad callback
+      			function (data) {
+      				console.log(data); // output the text to the console
+      				fshader2 = data;
+      				count2 += 1;
+      				addTiledTextureCube()
+      			},
+      			// onProgress callback
+      			function (xhr) {
+      				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+      			},
+				// onError callback
+      			function (err) {
+      				console.error('An error happened');
+      			});
+			// cube 5: custom shader material
+			var geometry3, material5, cube5;
+			function addTiledTextureCube() {
+				if (count == 2) {
+					let uniforms2 = {
+						texture4: {type: 'sampler2D', value: new THREE.TextureLoader().load("textures/178.jpg")}, //load brick diff texture
+						colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
+						colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
+					};
+					geometry3 = new THREE.BoxGeometry(1, 1, 1);
+					material5 = new THREE.ShaderMaterial({
+						uniforms: uniforms2,
+						fragmentShader: fshader2,
+						vertexShader: vshader2,
+						precision: "mediump"});
+					cube5 = new THREE.Mesh(geometry3, material5);
+					cube5.position.x = -4; 
+					scene.add(cube5);
+				}
+			}
+
 
 			// add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
-			light.position.set(10, 10, 10);
+			light.position.set(20, 10, 10);
 			scene.add(light);
 
 			// create animate method to animate cubes and lights
 			var lightDir = -0.3; //set light moving left initially (neg = left/pos = right)
-			var lightPosition = 10;
+			var lightPosition = 20;
 			function animate() {
 				requestAnimationFrame(animate);
 				//animate light to oscillate on the x-axis
 				light.position.x = lightPosition;
-				if (light.position.x <= -10) { //left bound
+				if (light.position.x <= -25) { //left bound
 					lightDir = 0.3; //change to move right 
-				}else if (light.position.x >= 10) { //right bound
+				}else if (light.position.x >= 25) { //right bound
 					lightDir = -0.3; //change to move left
 				}else{
 					//no change
