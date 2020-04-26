@@ -22,4 +22,12 @@ y = -8v+8 //scale v value 8 times and flip over vertical axis to fit texture and
 c. What color is sampled from the texture at the uv coordinate (0.375, 0.25)? (sample from the image based on the number your formula gives you i.e. (1, 0) is blue)\
 x = 8*(0.375) = 3 \
 y = -8*(0.25)+8 = 6 \
-(3, 6) is white
+(3, 6) is white\
+\
+video: https://drive.google.com/file/d/1C11fxgNjLWbyBKmCvnmMwK7u9JWb9V0j/view?usp=sharing
+
+cube first to the left: steel floor texture loaded with three.js built in texture functionality
+cube second to the left: steel floor texture with normals loaded with three.js built in texture functionality
+cube third to the left: engraved wood texture with normals loaded with three.js built in texture functionality
+cube fourth to the left: pebble texture loaded with shaders
+cube fifth to the left: brick texture tiled 2x2 loaded with shaders

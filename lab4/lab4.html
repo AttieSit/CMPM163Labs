@@ -21,27 +21,27 @@
 			camera.position.z = 5;
 			
 			// setup cubes 1-3
-			// cube 1: steel floor texture with normals
+			// cube 2: steel floor texture with normals (second to the left)
 			var geometry = new THREE.BoxGeometry();
 			var texture1 = THREE.ImageUtils.loadTexture("textures/199.jpg"); //load steel floor diff texture
 			var normMap1 = THREE.ImageUtils.loadTexture("textures/199_norm.jpg"); //load steel floor normal texture
 			var material1 = new THREE.MeshPhongMaterial( { map: texture1, normalMap: normMap1 } ); 
       		var cube = new THREE.Mesh(geometry, material1);
      		scene.add(cube);
-     		// cube 2: steel floor texture 
+     		cube.position.x -= 2; 
+     		// cube 1: steel floor texture no normals (first on the left)
      		var material2 = new THREE.MeshPhongMaterial( { map: texture1 } ); 
      		var cube2 = new THREE.Mesh(geometry, material2);
      		scene.add(cube2);
-     		cube2.position.x -= 2;
-     		//cube 3: engraved wood texture 
+     		cube2.position.x -= 4;
+     		//cube 3: engraved wood texture with normals (third to the left)
      		var texture2 = THREE.ImageUtils.loadTexture("textures/176.jpg"); //load engraved wood diff texture
      		var normMap2 = THREE.ImageUtils.loadTexture("textures/176_norm.jpg"); //load engraved wood normal texture
      		var material3 = new THREE.MeshPhongMaterial( {map: texture2, normalMap: normMap2} ); 
      		var cube3 = new THREE.Mesh(geometry, material3);
      		scene.add(cube3); 
-     		cube3.position.x += 2; 
 
-     		// setup cube 4 
+     		// setup cube 4 (fourth to the left)
 			// shader variables
 			THREE.Cache.enabled = true;
 			var count = 0;
@@ -81,7 +81,7 @@
       			function (err) {
       				console.error('An error happened');
       			});
-			// cube 4: custom shader material
+			// cube 4: custom shader material 
 			var geometry2, material4, cube4;
 			function addNormalMapShaderCube() {
 				if (count == 2) {
@@ -97,12 +97,12 @@
 						vertexShader: vshader,
 						precision: "mediump"});
 					cube4 = new THREE.Mesh(geometry2, material4);
-					cube4.position.x = 4; 
+					cube4.position.x = 2; 
 					scene.add(cube4);
 				}
 			}
 
-     		// setup cube 5 
+     		// setup cube 5 (fifth to the left)
 			// shader variables
 			var count2 = 0;
 			var loader = new THREE.FileLoader();
@@ -147,8 +147,6 @@
 				if (count == 2) {
 					let uniforms2 = {
 						texture4: {type: 'sampler2D', value: new THREE.TextureLoader().load("textures/178.jpg")}, //load brick diff texture
-						colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
-						colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
 					};
 					geometry3 = new THREE.BoxGeometry(1, 1, 1);
 					material5 = new THREE.ShaderMaterial({
@@ -157,7 +155,7 @@
 						vertexShader: vshader2,
 						precision: "mediump"});
 					cube5 = new THREE.Mesh(geometry3, material5);
-					cube5.position.x = -4; 
+					cube5.position.x = 4; 
 					scene.add(cube5);
 				}
 			}
