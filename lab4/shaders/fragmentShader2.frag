@@ -1,6 +1,5 @@
+uniform sampler2D texture4; //brick texture
 varying vec2 vUv;
-
-uniform sampler2D texture4;
 
 void main() {
 	if (vUv.x > 0.5){ //right sides
