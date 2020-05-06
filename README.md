@@ -31,3 +31,8 @@ cube second to the left: steel floor texture with normals loaded with three.js b
 cube third to the left: engraved wood texture with normals loaded with three.js built in texture functionality\
 cube fourth to the left: pebble texture loaded with shaders\
 cube fifth to the left: brick texture tiled 2x2 loaded with shaders. To make this, I started with scaling the tile down by multipling the vUv by 2. This gave me the bottom left tile. I then went ahead and experimented with different values to get the tile appearing on the other three positions on the cube by adding and substracting vUv with floating point values. Substracting vUv by 0.5 gave me the upper right tile. In order to get the top left and bottom right tiles, I used vec2 to test substracting values on vUv.x and vUv.y individually until I got the tiles on their correct positions. I then went ahead to get them to load individually only on their repective positions without overlapping other tiles by setting boundaries with if statements.
+
+## lab 5 ##
+video: https://drive.google.com/file/d/1FoyttxGvU9pLTkDrtjvfEP6mMAuUZ_Gm/view?usp=sharing
+
+I choose to do part 1 for lab 5. In this lab, I created a back tire spark and glow effect from following the recommended tutorial. I added a starfield skybox (credit: PULSAR BYTES) and created a fire particle effect. I also added in assets from the mod folder and editted the materials from the original assets into the scene to create a sci fi, time paradox theme for this game. 
