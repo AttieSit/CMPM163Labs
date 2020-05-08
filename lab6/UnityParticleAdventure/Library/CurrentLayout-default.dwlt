@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 23
-    y: 92
+    x: 541
+    y: 133
     width: 1200
     height: 899
   m_ShowMode: 4
@@ -383,17 +383,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 23
-    y: 122
+    x: 541
+    y: 163
     width: 271
     height: 517
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 38330000
-      m_LastClickedID: 13112
-      m_ExpandedIDs: 5ef4ffff70fbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -438,8 +438,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 295
-    y: 122
+    x: 813
+    y: 163
     width: 553
     height: 517
   m_ViewDataDictionary: {fileID: 0}
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.5608454, y: 0.13501549, z: 0.0265764}
+    m_Target: {x: 0.870522, y: 0.88036287, z: -0.88576245}
     speed: 2
-    m_Value: {x: 1.5608454, y: 0.13501549, z: 0.0265764}
+    m_Value: {x: 0.870522, y: 0.88036287, z: -0.88576245}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -501,13 +501,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.17680109, y: 0.8096302, z: -0.30503634, w: 0.46928316}
+    m_Target: {x: 0.36747658, y: 0.45704502, z: -0.21505566, w: 0.78094834}
     speed: 2
-    m_Value: {x: 0.17609407, y: 0.8100733, z: -0.30381647, w: 0.46954}
+    m_Value: {x: 0.36714286, y: 0.45820254, z: -0.21560033, w: 0.7802391}
   m_Size:
-    m_Target: 13.294719
+    m_Target: 13.594667
     speed: 2
-    m_Value: 12.7222185
+    m_Value: 13.009252
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -579,8 +579,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 23
-    y: 660
+    x: 541
+    y: 701
     width: 826
     height: 290
   m_ViewDataDictionary: {fileID: 0}
@@ -597,20 +597,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\attie\OneDrive\Documents\CMPM163Labs\lab6\UnityParticleAdventure
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 88330000
-    m_LastClickedID: 13192
-    m_ExpandedIDs: 000000008833000000ca9a3b
+    m_SelectedIDs: ae330000
+    m_LastClickedID: 13230
+    m_ExpandedIDs: 00000000a033000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -638,7 +638,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000088330000
+    m_ExpandedIDs: 00000000a0330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -682,7 +682,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -741,8 +741,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 850
-    y: 122
+    x: 1368
+    y: 163
     width: 372
     height: 828
   m_ViewDataDictionary: {fileID: 0}
