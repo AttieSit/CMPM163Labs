@@ -48,7 +48,7 @@ i. ![](images/lab6_part_i_screenshot.png)
 	6. Two textured objects: fork on the right and plate\
 	7. Skybox: starfield skybox by PULSAR BYTES\
 ii. \
-iii. Found object image: ![](images/lab6_part_iii_realWorld_photo.png)\
+iii. Found object image: ![](images/lab6_part_iii_realWorld_photo.jpg)\
 Recreation of material and model in unity. The model is made by me in blender 3D (I didn't realized until after texturing that the back tip of the fork is supposed to be round) and the material is created in unity:
 ![](images/lab6_part_iii_recreation_screenshot.png)lab6_part_iii_recreation\
 iv. I made the material of the fork look like the object by changing the material's albedo color to light gray and then increasing the metallic and smoothness values until it looked like metal.\
