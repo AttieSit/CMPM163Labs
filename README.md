@@ -36,3 +36,15 @@ cube fifth to the left: brick texture tiled 2x2 loaded with shaders. To make thi
 video: https://drive.google.com/file/d/1FoyttxGvU9pLTkDrtjvfEP6mMAuUZ_Gm/view?usp=sharing
 
 I choose to do part 1 for lab 5. In this lab, I created a back tire spark and glow effect from following the recommended tutorial. I added a starfield skybox (credit: PULSAR BYTES) and created a fire particle effect. The fire particle effect is created from a game object particle system and modifying its color, start speed, size, emission, shape, etc.. until it looked like a slow glowing orange blob rising from the bottom. I then duplicated it and changed the duplicate color to white and scaled it down into the flame's center. I also added in assets from the mod folder and edited the materials from the original assets into the scene to create a sci fi, time paradox theme for this game. 
+
+## lab 6 ##
+Part I option: 
+i. ![](images/lab6_part_i_screenshot.png)
+	1. Point light: green light furthest to the right\
+	2. Spot light: blue light second to the right\
+	3. Directional light: white light furthest to the left\
+	4. Area light: red light second to the left\
+	5. Real life Object with material: fork on the left\
+	6. Two textured objects: fork on the right and plate\
+	7. Skybox: starfield skybox by PULSAR BYTES\
+ii.
