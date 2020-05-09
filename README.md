@@ -39,7 +39,8 @@ I choose to do part 1 for lab 5. In this lab, I created a back tire spark and gl
 
 ## lab 6 ##
 Part I option: \
-i. ![](images/lab6_part_i_screenshot.png)
+i. Screenshot of finished lab\
+![](images/lab6_part_i_screenshot.png)
 	1. Point light: green light furthest to the right\
 	2. Spot light: blue light second to the right\
 	3. Directional light: white light furthest to the left\
@@ -47,11 +48,15 @@ i. ![](images/lab6_part_i_screenshot.png)
 	5. Real life object with material: fork on the left\
 	6. Two textured objects: fork on the right and plate\
 	7. Skybox: starfield skybox by PULSAR BYTES\
-ii. \
+ii. Light Definitions:\
+	Point light "light bulb": A point light lights up equally in all directions and can be positioned to light up nearby objects in a scene.\
+	Spotlight "flashlight": A spotlight is like a flashlight. It lights up all objects inside a cone boundary whose spot angle and range can be adjusted. It can be both rotated and positioned in a scene.\
+	Directional light "sun": A directional light lights all objects in a scene like a sun. It's rotation changes the direction of the light. Moving its position does not affect lighting in a scene.\
+	Area light: An area light lights out of one side of a plane shape whose range, width, and height can be adjusted. It has to be baked in a light map to work.\
 iii. Found object image: ![](images/lab6_part_iii_realWorld_photo.jpg)\
 Recreation of material and model in unity. The model is made by me in blender 3D (I didn't realized until after texturing that the back tip of the fork is supposed to be round and not completely flat) and the material is created in unity:
-![](images/lab6_part_iii_recreation_screenshot.png)lab6_part_iii_recreation\
+![](images/lab6_part_iii_recreation_screenshot.png)\
 iv. I made the material of the fork look like the object by changing the material's albedo color to light gray and then increasing the metallic and smoothness values until it looked like metal.\
-v. The two textured objects are another fork and a plate. Both are textured by me in substance painter and I exported their albedo, metallic, and normal maps to make their textured material in unity. I choose to reuse the fork model just to show the difference textures can add to the look of a material.
+v. The two textured objects are another fork and a plate. Both are textured in substance painter and I exported their albedo, metallic, and normal maps to make their textured material in unity. I choose to reuse the fork model just to show the difference textures can add to the look of a material. The plate is modelled in blender. 
 ![](images/lab6_part_v_screenshot.png)\
 vi. The skybox used in this scene is a starfield skybox created by PULSAR BYTES.
