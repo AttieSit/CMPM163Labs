@@ -38,13 +38,20 @@ video: https://drive.google.com/file/d/1FoyttxGvU9pLTkDrtjvfEP6mMAuUZ_Gm/view?us
 I choose to do part 1 for lab 5. In this lab, I created a back tire spark and glow effect from following the recommended tutorial. I added a starfield skybox (credit: PULSAR BYTES) and created a fire particle effect. The fire particle effect is created from a game object particle system and modifying its color, start speed, size, emission, shape, etc.. until it looked like a slow glowing orange blob rising from the bottom. I then duplicated it and changed the duplicate color to white and scaled it down into the flame's center. I also added in assets from the mod folder and edited the materials from the original assets into the scene to create a sci fi, time paradox theme for this game. 
 
 ## lab 6 ##
-Part I option: 
+Part I option: \
 i. ![](images/lab6_part_i_screenshot.png)
 	1. Point light: green light furthest to the right\
 	2. Spot light: blue light second to the right\
 	3. Directional light: white light furthest to the left\
 	4. Area light: red light second to the left\
-	5. Real life Object with material: fork on the left\
+	5. Real life object with material: fork on the left\
 	6. Two textured objects: fork on the right and plate\
 	7. Skybox: starfield skybox by PULSAR BYTES\
-ii.
+ii. \
+iii. Found object image: ![](images/lab6_part_iii_photo.png)\
+Recreation of material and model in unity. The model is made by me in blender 3D (I didn't realized until after texturing that the back tip of the fork is supposed to be round) and the material is created in unity:
+![](images/lab6_part_iii_recreation_screenshot.png)lab6_part_iii_recreation\
+iv. I made the material of the fork look like the object by changing the material's albedo color to light gray and then increasing the metallic and smoothness values until it looked like metal.\
+v. The two textured objects are another fork and a plate. Both are textured by me in substance painter and I exported their albedo, metallic, and normal maps to make their textured material in unity. I choose to reuse the fork model just to show the difference textures can add to the look of a material.
+![](images/lab6_part_v_screenshot.png)\
+vi. The skybox used in this scene is a starfield skybox created by PULSAR BYTES.
