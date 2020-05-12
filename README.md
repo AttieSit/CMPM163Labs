@@ -49,7 +49,7 @@ i. Screenshot of finished lab\
 	6. Two textured objects: fork on the right and plate\
 	7. Skybox: starfield skybox by PULSAR BYTES\
 ii. Light Definitions:\
-	Point light "light bulb": A point light lights up equally in all directions and can be positioned to light up nearby objects in a scene.\
+	Point light "light bulb": A point light lights up equally in all directions and  and can be positioned to light up nearby objects in a scene.\
 	Spotlight "flashlight": A spotlight is like a flashlight. It lights up all objects inside a cone boundary whose spot angle and range can be adjusted. It can be both rotated and positioned in a scene.\
 	Directional light "sun": A directional light lights all objects in a scene like a sun. It's rotation changes the direction of the light. Moving its position does not affect lighting in a scene.\
 	Area light: An area light lights out of one side of a plane shape whose range, width, and height can be adjusted. It has to be baked in a light map to work.\
