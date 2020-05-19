@@ -60,3 +60,7 @@ iv. I made the material of the fork look like the object by changing the materia
 v. The two textured objects are another fork and a plate. Both are textured in substance painter and I exported their albedo, metallic, and normal maps to make their textured material in unity. I choose to reuse the fork model just to show the difference textures can add to the look of a material. The plate is modelled in blender. 
 ![](images/lab6_part_v_screenshot.png)\
 vi. The skybox used in this scene is a starfield skybox created by PULSAR BYTES.
+
+## lab 7 ##
+video: https://drive.google.com/file/d/1G2eIqR16NdOUt2N5dKC4V__wHaS6Tq6X/view?usp=sharing 
+I chose to do part 1 for lab 7. The ocean waves in the scene was created using shader programming by following the recommended water and wave tutorial by Dapper Dino. A darker blue plane was placed underneath it to create the ocean floor. The vertex displacement material was created using the shader graph following the recommended unity learn tutorial. This material was placed on multiple spheres to create clouds in the scene. The mountains were created by modifying the vertex displacement material so that the spikes appear larger and is pulled from the center. The rest of the low poly beach models and materials in the scene were created in blender 3D. 
