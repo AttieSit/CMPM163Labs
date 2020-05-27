@@ -68,3 +68,13 @@ i. I chose to do part 1 for lab 7. I created the ocean waves in the scene using 
 Partner Section:\
 ii. For his creative portion of the lab, my partner created custom textures, a sky box, tree leave shader animations, a sand floor using a displacement shader, and made additional models for his scene. I thought that his tree animations were awesome and genius. His ocean looked really good mixed with his ocean texture and the smooth movements of the wave. From seeing his work, I feel like I learned how adding details to little things can really pull a scene together. The tree animations was a nice touch that reduced static-ness in his scene which was an issue I had in mines.\
 e. My partner and I completed the lab on different times. We didn't need to ask help from eachother to complete our individual labs. 
+
+## lab 7 ##
+i. Screenshot of San Jose using osmbuildings.org that inspired my generated city\
+![](images/cityScreenshot.png)\
+ii.  Screenshot of finished lab in unity\
+![](images/cityScreenshot.png)\
+iii. I was inspired by the 3D layout of San Jose in osmbuildings and tried to create a similar city layout following the recommended procedural city tutorial by Holistic3d. The goal was to be able to convey the "city", residental, green, and water areas of SJ as clear and simple as possible. The method of procedurally placing the city models into scene limited the accuracy of the city, but overall I think it did an okay job of conveying simple building information. The city assets were inspired by the simple building models in osmbuildings. They were modelled in blender 3D and given basic materials in unity 3D. 
+\
+Partner Section:\
+My partner was unreachable on discord.
